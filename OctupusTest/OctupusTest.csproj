@@ -143,14 +143,12 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <None Include="Web.Production.config">
+    <Content Include="Web.Production.config">
       <DependentUpon>Web.config</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Web.Test.config">
+    </Content>
+    <Content Include="Web.Test.config">
       <DependentUpon>Web.config</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </Content>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
