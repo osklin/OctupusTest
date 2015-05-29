@@ -1,12 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Web.Configuration;
 using System.Web.Mvc;
 
 namespace OctupusTest.Controllers {
+
     public class HomeController : Controller {
+
         public ActionResult Index() {
+            ViewBag.Message = ReadConfiguredMessage();
             return View();
         }
 
@@ -21,5 +22,14 @@ namespace OctupusTest.Controllers {
 
             return View();
         }
+
+        private static String ReadConfiguredMessage() {
+            var message = WebConfigurationManager.AppSettings["message"];
+            return String.IsNullOrWhiteSpace(message)
+                ? "No message."
+                : message;
+        }
+
     }
+
 }
