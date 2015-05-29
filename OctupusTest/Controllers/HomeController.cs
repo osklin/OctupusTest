@@ -7,7 +7,8 @@ namespace OctupusTest.Controllers {
     public class HomeController : Controller {
 
         public ActionResult Index() {
-            ViewBag.Message = ReadConfiguredMessage();
+            ViewBag.Message = ReadConfiguredString("message");
+            ViewBag.Version = ReadConfiguredString("version");
             return View();
         }
 
@@ -23,11 +24,11 @@ namespace OctupusTest.Controllers {
             return View();
         }
 
-        private static String ReadConfiguredMessage() {
-            var message = WebConfigurationManager.AppSettings["message"];
-            return String.IsNullOrWhiteSpace(message)
-                ? "No message."
-                : message;
+        private static String ReadConfiguredString(String key) {
+            var configuredString = WebConfigurationManager.AppSettings[key];
+            return String.IsNullOrWhiteSpace(configuredString)
+                ? "N/A"
+                : configuredString;
         }
 
     }
